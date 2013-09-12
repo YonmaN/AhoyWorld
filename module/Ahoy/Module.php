@@ -11,8 +11,9 @@ namespace Ahoy;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ModuleManager\Feature\ServiceProviderInterface;
 
-class Module
+class Module implements ServiceProviderInterface
 {
     public function onBootstrap(MvcEvent $e)
     {
@@ -36,4 +37,16 @@ class Module
             ),
         );
     }
+    
+	/* (non-PHPdoc)
+	 * @see \Zend\ModuleManager\Feature\ServiceProviderInterface::getServiceConfig()
+	 */
+	public function getServiceConfig() {
+		return array(
+			'invokables' => array(
+				'Ahoy\Mapper\Activity' => 'Ahoy\Mapper\Activity'
+			)
+		);
+	}
+
 }
