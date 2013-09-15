@@ -19,6 +19,7 @@ class IndexController extends AbstractActionController
     	$activity = $this->getServiceLocator()->get('Ahoy\Mapper\Activity');
     	$active = $activity->isSiteActive();
     	$activity->setSiteActivity(! $active);
+    	$active = (!$active);
         return new ViewModel(array('active' => $active));
     }
 }
