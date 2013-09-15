@@ -20,6 +20,16 @@ return array(
                     ),
                 ),
             ),
+        	'status' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/Status[/:action]',
+                            'defaults' => array(
+                            	'action' => 'status',
+                            	'controller' => 'Ahoy\Controller\Status'
+                            ),
+                        ),
+                    ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -73,7 +83,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Ahoy\Controller\Index' => 'Ahoy\Controller\IndexController'
+            'Ahoy\Controller\Index' => 'Ahoy\Controller\IndexController',
+            'Ahoy\Controller\Status' => 'Ahoy\Controller\StatusController'
         ),
     ),
     'view_manager' => array(
@@ -90,6 +101,9 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'strategies' => array(
+        		'ViewJsonStrategy',
         ),
     ),
     // Placeholder for console routes
