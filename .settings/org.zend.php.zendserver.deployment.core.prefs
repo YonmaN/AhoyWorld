@@ -1,4 +1,4 @@
-applicationURL=http\://yonni-desktop/AhoyWorld
+applicationURL=http\://localhost/AhoyWorld
 eclipse.preferences.version=1
-targetHost=http\://yonni-desktop\:10081
-targetId=0
+targetHost=http\://localhost\:10081
+targetId=1

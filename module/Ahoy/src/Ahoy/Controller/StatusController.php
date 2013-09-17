@@ -19,4 +19,9 @@ class StatusController extends AbstractRestfulController {
 		$mapper = $this->getServiceLocator()->get('Ahoy\Mapper\Activity');
 		return new JsonModel(array('status' => $mapper->isSiteActive()));
 	}
+	
+	public function toggleAction() {
+		$mapper = $this->getServiceLocator()->get('Ahoy\Mapper\Activity');
+		return new JsonModel(array('status' => $mapper->setSiteActivity(! $mapper->isSiteActive())));
+	}
 }
